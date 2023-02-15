@@ -12,29 +12,19 @@ import org.openqa.selenium.Keys;
 public class SuperApp_QATestGilbert {
 	
 	// Fungsi yang digunakan untuk melakukan delay selama 3 detik
-			static void Wait_Tiga_Detik() {
-				try {
-					Thread.sleep(3000);
-				} catch (InterruptedException e) {
-					
-					e.printStackTrace();
-				}
-			  }
-	
-	// Fungsi yang digunakan untuk melakukan delay selama 5 detik
-		static void Wait_Lima_Detik() {
+		static void Wait_Tiga_Detik() {
 			try {
-				Thread.sleep(5000);
+				Thread.sleep(3000);
 			} catch (InterruptedException e) {
-				
+					
 				e.printStackTrace();
 			}
-		  }
+		}
 		
 	// Fungsi yang digunakan untuk melakukan delay selama 10 detik
-		static void Wait_Sepuluh_Detik() {
+		static void Wait_LimaBelas_Detik() {
 			try {
-				Thread.sleep(10000);
+				Thread.sleep(15000);
 			} catch (InterruptedException e) {
 						
 				e.printStackTrace();
@@ -54,8 +44,8 @@ public class SuperApp_QATestGilbert {
        
         driver.get(baseUrl);
 
-        // Memanggil fungsi delay selama 5 detik agar halaman website terbuka terlebih dahulu
-        Wait_Lima_Detik();
+        // Memanggil fungsi delay selama 3 detik agar halaman website terbuka terlebih dahulu
+        Wait_LimaBelas_Detik();
         
         // Mengisi Username
         driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div[1]/div/form/div[1]/input")).sendKeys("standard_user");
@@ -65,6 +55,8 @@ public class SuperApp_QATestGilbert {
         
         // Menekan tombol Login
         driver.findElement(By.xpath("/html/body/div/div/div[2]/div[1]/div[1]/div/form/input")).click();
+        
+        Wait_Tiga_Detik();
         
         String expectedURL = "https://www.saucedemo.com/inventory.html";
         String actualURL = "";
@@ -97,6 +89,8 @@ public class SuperApp_QATestGilbert {
         else {
         	System.out.println("Filter barang dari harga tertinggi salah");
         }
+        
+        Wait_Tiga_Detik();
         
         String HargaBarangPertamaExpected = "$49.99";
         String NamaBarangPertamaExpected = "Sauce Labs Fleece Jacket";
@@ -137,14 +131,26 @@ public class SuperApp_QATestGilbert {
         //Mengisi ZIP Code di verifikasi halaman checkout dengan data asal
         driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/form/div[1]/div[3]/input")).sendKeys("123");
         
+        Wait_Tiga_Detik();
+        
         //Menekan tombol continue
         driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/form/div[2]/input")).click();
         
-        //tekan selesai sudah
-        // /html/body/div/div/div/div[2]/div/div[2]/div[8]/button[2]
-        		
+        // Menekan tombol Finish
+        driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div[2]/div[8]/button[2]")).click();
         
+        boolean TombolBacktohome = driver.findElement(By.xpath("/html/body/div/div/div/div[2]/button")).isDisplayed();
         
+        if (TombolBacktohome == true) {
+        	System.out.println("Status order sudah dikirim");
+        }
+        else
+        {
+        	System.out.println("Status order tidak berhasil dikirim");
+        }
+        
+        Wait_LimaBelas_Detik();
+	
         // Lalu menutup Selenium Webdriver
         driver.close();
 	}
