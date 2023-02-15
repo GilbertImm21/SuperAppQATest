@@ -140,7 +140,7 @@ public class SuperApp_QATestGilbert {
         //Menekan tombol continue
         driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/form/div[2]/input")).click();
         
-        //tekan finish
+        //tekan selesai
         // /html/body/div/div/div/div[2]/div/div[2]/div[8]/button[2]
         		
         
