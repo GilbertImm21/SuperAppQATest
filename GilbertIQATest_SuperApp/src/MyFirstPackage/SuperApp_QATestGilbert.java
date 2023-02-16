@@ -21,7 +21,7 @@ public class SuperApp_QATestGilbert {
 			}
 		}
 		
-	// Fungsi yang digunakan untuk melakukan delay selama 10 detik
+	// Fungsi yang digunakan untuk melakukan delay selama 15 detik
 		static void Wait_LimaBelas_Detik() {
 			try {
 				Thread.sleep(15000);
@@ -141,6 +141,7 @@ public class SuperApp_QATestGilbert {
         
         boolean TombolBacktohome = driver.findElement(By.xpath("/html/body/div/div/div/div[2]/button")).isDisplayed();
         
+        // Lalu melakukan verifikasi dari status order berdasrkan pemeriksaan komponen tombol 'Back to Home'
         if (TombolBacktohome == true) {
         	System.out.println("Status order sudah dikirim");
         }
