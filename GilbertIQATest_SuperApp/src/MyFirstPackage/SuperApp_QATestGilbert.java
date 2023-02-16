@@ -141,7 +141,7 @@ public class SuperApp_QATestGilbert {
         
         boolean TombolBacktohome = driver.findElement(By.xpath("/html/body/div/div/div/div[2]/button")).isDisplayed();
         
-        // Lalu melakukan verifikasi dari status order berdasrkan pemeriksaan komponen tombol 'Back to Home'
+        // Lalu melakukan verifikasi dari status order berdasarkan pemeriksaan komponen tombol 'Back to Home'
         if (TombolBacktohome == true) {
         	System.out.println("Status order sudah dikirim");
         }
